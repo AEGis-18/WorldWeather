@@ -1,16 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-//const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </>
   );
 }
