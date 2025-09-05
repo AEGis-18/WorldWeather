@@ -4,6 +4,7 @@ import useWindowDimensions from "../hooks/useWindowsDimensions";
 import CurrentWeather from "../components/CurrentWeather";
 import { WeatherForecast } from "../components/WeatherForecast";
 import { SideInfo } from "../components/SideInfo";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export function HomePage() {
   const [country, setCountry] = useState();
@@ -18,10 +19,14 @@ export function HomePage() {
   }
   return (
     <div className="bg-slate-950 flex flex-col md:flex-row text-white">
-      <WorldComponent
-        selectCountry={selectCountry}
-        size={width}
-      ></WorldComponent>
+      <TransformWrapper>
+        <TransformComponent>
+          <WorldComponent
+            selectCountry={selectCountry}
+            size={width}
+          ></WorldComponent>
+        </TransformComponent>
+      </TransformWrapper>
       <div className="p-4 bg-slate-900 flex-grow w-full md:w-[300px] flex-shrink-0">
         <SideInfo>
           {/* <CurrentWeather country={country}></CurrentWeather> */}
