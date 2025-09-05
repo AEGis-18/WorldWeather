@@ -6,7 +6,7 @@ export function WorldComponent({ selectCountry, size }) {
       type="select-single"
       size={size}
       onSelect={selectCountry}
-      mapColor="#1f2937"
+      mapColor="#B5B5B5"
       hoverColor="#3730a3"
       selectColor="#6366f1"
       strokeColor="#2e1065"
