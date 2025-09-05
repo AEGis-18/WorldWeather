@@ -6,14 +6,12 @@ export function DisplayDay({ data }) {
   return (
     <>
       <h3 className="font-bold text-xl p-2">{getWeekDate(data.date)}</h3>
-      {/* <p>{data.day.condition.text}</p>
-      <img src={data.day.condition.icon} /> */}
-      <ul className="flex space-x-2 ">
+      <ul className="flex flex-wrap space-x-2 space-y-2">
         {selectHours(data.hour).map((hour) => {
           return (
             <li
               key={hour.time}
-              className=" flex-1 border-solid border-2 border-slate-800 rounded-sm p-2 shadow-lg shadow-slate-950"
+              className=" flex-shrink-0 w-[90px] h-[200px] border-solid border-2 border-slate-800 rounded-sm p-2 shadow-lg shadow-slate-950"
             >
               <DisplayHour hour={hour}></DisplayHour>
             </li>
