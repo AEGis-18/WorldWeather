@@ -10,7 +10,7 @@ export function WorldComponent({ selectCountry, size }) {
       hoverColor="#3730a3"
       selectColor="#6366f1"
       strokeColor="#2e1065"
-      strokeWidth={0.25}
+      strokeWidth={0.4}
       hints
     ></World>
   );

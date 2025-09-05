@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getCountryCurrent } from "../api/api";
 
-export default function CurrentWeather({ country = "United States" }) {
+export default function CurrentWeather({ country = "Paraguay" }) {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["current", country],
     queryFn: () => getCountryCurrent(country),

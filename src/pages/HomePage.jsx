@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { WorldComponent } from "../components/WorldComponent";
 import useWindowDimensions from "../hooks/useWindowsDimensions";
 import CurrentWeather from "../components/CurrentWeather";
+import { WeatherForecast } from "../components/WeatherForecast";
 import { SideInfo } from "../components/SideInfo";
 
 export function HomePage() {
@@ -16,16 +17,15 @@ export function HomePage() {
     console.log(country);
   }
   return (
-    <div className="bg-slate-950 flex flex-col md:flex-row">
+    <div className="bg-slate-950 flex flex-col md:flex-row text-white">
       <WorldComponent
         selectCountry={selectCountry}
         size={width}
       ></WorldComponent>
-      <div className="p-4 bg-slate-900 flex-shrink-0  max-w-[300px] min-w-[200px] md:min-w-[300px]">
+      <div className="p-4 bg-slate-900 flex-grow w-full md:w-[300px] flex-shrink-0">
         <SideInfo>
-          <CurrentWeather
-            country={country !== null ? country : "United States"}
-          ></CurrentWeather>
+          {/* <CurrentWeather country={country}></CurrentWeather> */}
+          <WeatherForecast country={country}></WeatherForecast>
         </SideInfo>
       </div>
     </div>

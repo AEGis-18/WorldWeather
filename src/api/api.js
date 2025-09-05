@@ -8,7 +8,6 @@ export const Api = axios.create({
 });
 
 export const getCountryCurrent = async (country) => {
-  console.log(API_KEY);
   const res = await Api.get("/current.json", {
     params: { key: API_KEY, q: country },
   });
@@ -17,9 +16,8 @@ export const getCountryCurrent = async (country) => {
 };
 
 export const getCountryForecast = async (country) => {
-  console.log(API_KEY);
-  const res = await Api.get("/current.json", {
-    params: { key: API_KEY, q: country },
+  const res = await Api.get("/forecast.json", {
+    params: { key: API_KEY, q: country, days: 3 },
   });
   console.log("CLG: ", res.data);
   return res.data;
