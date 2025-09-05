@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { WorldComponent } from "../components/WorldComponent";
 import useWindowDimensions from "../hooks/useWindowsDimensions";
 import CurrentWeather from "../components/CurrentWeather";
+import { SideInfo } from "../components/SideInfo";
 
 export function HomePage() {
   const [country, setCountry] = useState();
@@ -9,7 +10,9 @@ export function HomePage() {
   const { width } = useWindowDimensions();
 
   function selectCountry(data) {
-    setCountry(data);
+    if (data) {
+      setCountry(data);
+    }
     console.log(country);
   }
   return (
@@ -18,8 +21,12 @@ export function HomePage() {
         selectCountry={selectCountry}
         size={width}
       ></WorldComponent>
-      <div className="bg-red-300 flex-shrink-0 min-w-[200px] md:min-w-[300px]">
-        <CurrentWeather country={country}></CurrentWeather>
+      <div className="p-4 bg-slate-900 flex-shrink-0  max-w-[300px] min-w-[200px] md:min-w-[300px]">
+        <SideInfo>
+          <CurrentWeather
+            country={country !== null ? country : "United States"}
+          ></CurrentWeather>
+        </SideInfo>
       </div>
     </div>
   );

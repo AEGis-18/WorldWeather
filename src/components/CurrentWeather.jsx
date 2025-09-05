@@ -16,10 +16,10 @@ export default function CurrentWeather({ country = "United States" }) {
   }
 
   return (
-    <>
-      <p>{data.location.country}</p>
-      <p>{data.location.name}</p>
-      <p>{data.current.temp_c} ºC</p>
-    </>
+    <div className="text-white">
+      <h1 className="text-4xl font-bold">{data.location.country}</h1>
+      <h2 className="text-2xl font-semibold">{data.location.name}</h2>
+      <p className="font-semibold">{data.current.temp_c} ºC</p>
+    </div>
   );
 }
